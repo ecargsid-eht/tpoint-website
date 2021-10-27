@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% block title %}
+Homepage
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid bg-dark text-white text-center">
+    <div class="col-6 mx-auto">
+        <h1 class="ms-auto mb-5">TPoint</h1>
+
+        <p class="lead">You are browsing the best resource for Online Education</p>
+        <form action="">
+            <input type="text" class="form-control mb-3" placeholder="Enter your topic">
+            <a href="" class="btn btn-outline-primary w-75 mb-2">SEARCH</a>
+        </form>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-2 ms-2 ps-0">
+        <p class="display-6 ps-3">Articles</p>
+        <hr>
+        <div class="col-12">
+            <div class="list-group list-group-flush">
+                {% for sf in subjectfield %}
+                  <a href="#collapse{{forloop.counter}}" class=" list-group-item list-group-item-action bg-dark text-white border-white py-3" data-bs-toggle="collapse">{{sf.field}} &dtrif;</a>
+                  <div class="collapse" id="collapse{{forloop.counter}}">
+                    <div class="list-group small strong">
+                        {% for fa in sf.freearticle_set.all %}
+                            <a href="" class="list-group-item list-group-item-action py-2"> &raquo;    {{fa.title}}</a>
+                        {% endfor %}
+                    </div>
+                  </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <div class="vr vertical"></div>
+
+
+    <div class="col-8">
+        <p class="display-6">Professional Courses</p>
+        <hr>
+
+        <div class="row">
+            {% for pc in procourses %}
+            <div class="col-4">
+                <div class="card mb-3 shadow-lg">
+                    <img src="{{pc.image.url}}" alt="Language" style="object-fit: fill; height: 200px;"class="card-img-top">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between">
+                            <h4>{{pc.course}}</h4>
+                            <p class="lead" style="font-size: 21px;">Rs. {{pc.price}}/-</p>
+                        </div>
+                        <hr>
+                        <a href="{% url 'procourse' pc.id pc.slug %}" class="btn btn-outline-success w-100 ">VIEW COURSE</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+
+    </div>
+</div>
+{% endblock %}

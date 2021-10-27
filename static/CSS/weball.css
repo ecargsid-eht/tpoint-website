@@ -1,0 +1,16 @@
+.vertical{
+    padding: 0;
+    width: 1px;
+}
+
+
+.modal-open .bg{
+    filter: blur(5px);
+    -webkit-filter: blur(5px);
+    background-color: rgb(192, 106, 0);
+}
+
+.bg{
+    background-color: blue !important;
+}
+

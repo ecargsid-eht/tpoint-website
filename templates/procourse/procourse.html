@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+
+{% block title %}Django Pro{% endblock  %}
+
+{% load static %}
+
+
+{% block content %}
+
+<!-- <div class="container">
+    <h1>{{procourse.course}}</h1>
+    <hr>
+    <div class="row">
+        <div class="col-7 mx-auto">
+            <img src="{{procourse.image.url}}" style="width: 100%;">
+                <p class="lead"><small>Created by: <a href="" class="text-primary">{{procourse.author}}</a></small></p>
+                <div class="card">
+                    <div class="card-header">Details</div>
+                    <div class="card-body">{{procourse.description}}</div>
+                </div>
+        </div>
+
+        <div class="col-5 mx-auto">
+            <div class="card">
+                <div class="card-header h3">CheckOut</div>
+                <div class="card-body">
+                    <h2>Price - Rs.{{procourse.price}}/-</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+<div class="container mt-5 bg">
+    <div class="row">
+        <div class="col-7">
+            <img src="{{procourse.image.url}}" alt="" style="width: 746px; height: 365px;">
+            <hr> 
+            <div class="d-flex justify-content-between">
+                <h1 class="me-auto">{{procourse.course}}</h1>
+                <h1 class="me-5">Rs. {{procourse.price}}/-</h1>
+            </div>
+            <p class="small me-auto">Created by: <a href="">{{procourse.author}}</a></p>
+            <div class="text-center">
+                <a href="#checkout" class="btn btn-outline-dark w-75" data-bs-toggle="modal"><p class="lead fs-4 fw-normal mb-0">GET THIS COURSE</p></a>
+            </div>
+
+            <div class="modal fade blur" id="checkout">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3>GET COURSE NOW!!</h3>
+                            <button class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-7">
+                                    <p class="strong h3" style="overflow: hidden;">{{procourse.course}}</p>
+                                    <p class="strong h5"><span class="text-primary">By:</span> {{procourse.author}}</p>
+                                </div>
+                                <div class="col-5">
+                                    <img src="{{procourse.image.url}}" alt="" style="width: 10pc;">
+                                </div>
+                            </div>
+                            <hr>
+                                <div class="card">
+                                    <div class="card-header">Price Details</div>
+                                    <div class="card-body">
+                                        <table class="table table-striped">
+                                            <tbody>
+                                                <tr>
+                                                    <th>Price(of course)</th>
+                                                    <th>Rs. {{procourse.price}}</th>
+                                                </tr>
+
+                                                <tr>
+                                                    <th>GST(18%)</th>
+                                                    <th>Rs. {{procourse.tax_info}}</th>
+                                                </tr>
+
+                                                <tr>
+                                                    <th class="fs-5">Total Price</th>
+                                                    <th class="fs-5">Rs.{{procourse.total_info}}</th>
+                                                </tr>
+
+                                            </tbody>
+                                        </table>
+                                        <a href="" class="btn btn-primary fs-5 fw-bold">Add Coupon</a>
+                                        <a href="" class="btn btn-dark float-end fs-5 fw-bold" style="width: 144px;">Checkout &rightarrow;</a>
+                                    </div>
+                                    
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-5">
+            <div class="card">
+                <div class="card-header bg-dark text-white"><h3>Course description</h3></div>
+                <div class="card-body"><p class="lead">{{procourse.description}}</p></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock  %}
