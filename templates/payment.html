@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}Payment{% endblock  %}
+
+{% block content %}
+
+<h1>Payment</h1>
+
+<div class="card">
+    <div class="card-body">
+        <p class="lead">Are u sure to checkout?</p>
+        <div class="mb-3">
+            <a href="{% url 'ordered' %}" class="btn btn-success">Yes</a>
+        </div>
+    </div>
+</div>
+
+{% endblock  %}

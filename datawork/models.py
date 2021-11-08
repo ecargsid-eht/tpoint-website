@@ -1,7 +1,9 @@
+from django.contrib.auth.models import User
 from django.db import models
 from django.db.models.base import Model
 from django.db.models.deletion import CASCADE
 from django.urls import reverse
+from django.conf import settings
 
 
 # Create your models here.
@@ -56,6 +58,26 @@ class FreeArticle(models.Model):
 
     def __str__(self):
         return self.title
+
+class Coupon(models.Model):
+    code = models.CharField(max_length=40)
+    discount = models.IntegerField()
+    
+    def __str__(self):
+        return self.code
+
+class OrderedCourses(models.Model):
+    user = models.ForeignKey(User,on_delete=models.CASCADE)
+    course = models.ForeignKey(ProCourses,on_delete=models.CASCADE,null=True, blank=True )
+    ordered = models.BooleanField(default=False)
+
+class Payment(models.Model):
+    txn_id = models.CharField(max_length=400)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL,on_delete=models.CASCADE)
+    amount = models.FloatField()
+    time = models.DateTimeField(auto_now_add=True)
+
+    
 
 
 

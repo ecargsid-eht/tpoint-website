@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>
+      Mycourses
+  </h1>
+
+  <div class="card">
+    <div class="card-body">
+      {% for mc in mycourse %}
+        <h1>{{mc.course}}</h1>
+      {% endfor %}
+    </div>
+  </div>
+{% endblock  %}

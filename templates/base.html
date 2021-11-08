@@ -24,6 +24,8 @@
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a href="" class="nav-link">Home</a></li>
                     {% if user.is_authenticated %}
+                        <li class="nav-item"><a href="" class="nav-link"></a></li>
+                      <li class="nav-item"><a href="{% url 'my_course' %}" class="nav-link">My Courses</a></li>
                       <li class="nav-item"><a href="{% url 'account_logout' %}" class="nav-link">Logout</a></li>
                     {% else %}
                       <li class="nav-item"><a href="{% url 'account_signup' %}" class="nav-link">SignUp</a></li>
